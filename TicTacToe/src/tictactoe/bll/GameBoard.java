@@ -9,6 +9,7 @@ package tictactoe.bll;
 public class GameBoard implements IGameModel
 {
     private int currentPlayer = 0;
+    private int gameMode = 1;
     private String[][] board = new String[3][3];
     /**
      * Returns 0 for player 0, 1 for player 1.
@@ -19,6 +20,7 @@ public class GameBoard implements IGameModel
     {
         return currentPlayer;
     }
+    public int getGameMode(){ return gameMode;}
 
     /**
      * Attempts to let the current player play at the given coordinates. It the
@@ -51,6 +53,10 @@ public class GameBoard implements IGameModel
 
     public boolean isGameOver()
     {
+        if (getWinner() == 0 || getWinner() == 1){
+            return true;
+        }
+
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
                 if(board[row][col] == null){
@@ -110,6 +116,7 @@ public class GameBoard implements IGameModel
             }
         }
     }
-        //TODO Implement this method
+
+
 }
 
