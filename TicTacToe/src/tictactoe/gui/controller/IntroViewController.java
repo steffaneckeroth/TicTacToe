@@ -17,6 +17,8 @@ public class IntroViewController {
     public Button btnScoreboard;
 
     public static int gameMode;
+    public static String player1 = "player1";
+    public static String player2 = "player2";
 
 
     public void btnHandleScoreboard(ActionEvent actionEvent) {

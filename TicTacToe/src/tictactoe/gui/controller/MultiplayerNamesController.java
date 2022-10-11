@@ -18,6 +18,8 @@ public class MultiplayerNamesController {
 
     @FXML
     private void btnHandleMultiLetsPlay(ActionEvent actionEvent) throws IOException {
+        IntroViewController.player1 = Player1.getText();
+        IntroViewController.player2 = Player2.getText();
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/TicTacView.fxml"));
         Parent root = loader.load();

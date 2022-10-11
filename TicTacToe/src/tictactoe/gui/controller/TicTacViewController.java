@@ -36,6 +36,7 @@ public class TicTacViewController implements Initializable
     private static final String TXT_PLAYER = "Player: ";
     private IGameModel game;
 
+
     @FXML
     private void handleButtonAction(ActionEvent event)
     {
@@ -53,7 +54,7 @@ public class TicTacViewController implements Initializable
                     Button btn = (Button) event.getSource();
                     String xOrO = player == 0 ? "X" : "O";
                     btn.setText(xOrO);
-                    int winner = game.getWinner();
+                    String winner = game.getWinner();
                     displayWinner(winner);
 
                 } else {
@@ -83,7 +84,7 @@ public class TicTacViewController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        game = new GameBoard(IntroViewController.gameMode);
+        game = new GameBoard(IntroViewController.gameMode, IntroViewController.player1, IntroViewController.player2);
         setPlayer();
     }
 
@@ -92,18 +93,10 @@ public class TicTacViewController implements Initializable
         lblPlayer.setText(TXT_PLAYER + game.getNextPlayer());
     }
 
-    private void displayWinner(int winner)
+    private void displayWinner(String winner)
     {
         String message = "";
-        switch (winner)
-        {
-            case -1:
-                message = "It's a draw :-(";
-                break;
-            default:
-                message = "Player " + winner + " wins!!!";
-                break;
-        }
+        message = winner + ":  wins";
         lblPlayer.setText(message);
     }
 

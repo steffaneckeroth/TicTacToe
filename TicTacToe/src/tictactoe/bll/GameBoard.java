@@ -9,9 +9,13 @@ package tictactoe.bll;
 public class GameBoard implements IGameModel
 {
 
-    public GameBoard(int mode){
+    public GameBoard(int mode, String player1, String player2){
     gameMode= mode;
+    this.player1 = player1;
+    this.player2 = player2;
     }
+    private String player1;
+    private String player2;
     private int currentPlayer = 0;
     private int gameMode = 1;
     private String[][] board = new String[3][3];
@@ -63,7 +67,7 @@ public class GameBoard implements IGameModel
 
     public boolean isGameOver()
     {
-        if (getWinner() == 0 || getWinner() == 1){
+        if (getWinner() == player1 || getWinner() == player2){
             return true;
         }
 
@@ -82,36 +86,36 @@ public class GameBoard implements IGameModel
      *
      * @return int id of winner, or -1 if draw.
      */
-    public int getWinner()
+    public String getWinner()
     {
         //checks for vertical win
         for (int row = 0;  row < board.length; row++){
             String outcome = board[row][0] + board[row][1] + board[row][2];
             if (outcome.equals("xxx")){
-                return 0;
+                return player1;
             } else if (outcome.equals("ooo")) {
-                return 1;
+                return player2;
             }
         }
         //cheks for horizontal win
         for (int col = 0; col < board.length; col++) {
             String outcome = board[0][col] + board[1][col] + board[2][col];
             if (outcome.equals("xxx")) {
-                return 0;
+                return player1;
             } else if (outcome.equals("ooo")) {
-                return 1;
+                return player2;
             }
         }
 
         String cross1 = board[0][0] + board[1][1] + board[2][2];
         String cross2 = board[0][2] + board[1][1] + board[2][0];
         if (cross1.equals("xxx") || cross2.equals("xxx")){
-            return 0;
+            return player1;
         } else if (cross1.equals("ooo") || cross2.equals("ooo")) {
-            return 1;
+            return player2;
         }
 
-        return -1;
+        return "draw";
     }
 
     /**
