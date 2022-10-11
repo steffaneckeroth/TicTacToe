@@ -42,8 +42,6 @@ public class TicTacViewController implements Initializable
     {
         try
         {
-
-
             Integer row = GridPane.getRowIndex((Node) event.getSource());
             Integer col = GridPane.getColumnIndex((Node) event.getSource());
             int r = (row == null) ? 0 : row;
@@ -64,9 +62,6 @@ public class TicTacViewController implements Initializable
                     setPlayer();
                 }
             }
-
-
-
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
@@ -90,7 +85,7 @@ public class TicTacViewController implements Initializable
 
     private void setPlayer()
     {
-        lblPlayer.setText(TXT_PLAYER + game.getNextPlayer());
+        lblPlayer.setText(TXT_PLAYER + game.getNextPlayerName());
     }
 
     private void displayWinner(String winner)

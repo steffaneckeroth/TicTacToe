@@ -52,4 +52,6 @@ public interface IGameModel
      * Resets the game to a new game state.
      */
     public void newGame();
+
+    public String getNextPlayerName();
 }

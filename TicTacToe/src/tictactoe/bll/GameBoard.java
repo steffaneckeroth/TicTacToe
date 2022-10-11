@@ -130,6 +130,15 @@ public class GameBoard implements IGameModel
             }
         }
     }
+    public String getNextPlayerName() {
+
+        if (currentPlayer == 0) {
+            return player1;
+        }
+        else {
+            return player2;
+        }
+    }
 
 
 }
