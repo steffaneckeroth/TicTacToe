@@ -32,7 +32,12 @@ public class IntroViewController {
         stage.show();
          }
 
-
-    public void btnHandleSingleplayer(ActionEvent actionEvent) {
+    @FXML
+    private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/SingleplayerNameView.fxml"));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
