@@ -24,11 +24,17 @@ import tictactoe.bll.IGameModel;
 public class TicTacViewController implements Initializable
 {
 
+    public Button btn1;
+    public Button btn2;
+    public Button btn3;
+    public Button btn4;
+    public Button btn5;
+    public Button btn6;
+    public Button btn7;
+    public Button btn8;
+    public Button btn9;
     @FXML
     private Label lblPlayer;
-
-    @FXML
-    private Button btnNewGame;
 
     @FXML
     private GridPane gridPane;
@@ -47,19 +53,23 @@ public class TicTacViewController implements Initializable
             int r = (row == null) ? 0 : row;
             int c = (col == null) ? 0 : col;
             int player = game.getNextPlayer();
-            if (game.play(c, r)) {
-                if (game.isGameOver()) {
-                    Button btn = (Button) event.getSource();
-                    String xOrO = player == 0 ? "X" : "O";
-                    btn.setText(xOrO);
-                    String winner = game.getWinner();
-                    displayWinner(winner);
+            if (game.getGameMode() == 2) {
+                if (game.player(c, r)) {
+                    if (game.isGameOver()) {
+                        Button btn = (Button) event.getSource();
+                        String xOrO = player == 0 ? "X" : "O";
+                        btn.setText(xOrO);
+                        String winner = game.getWinner();
+                        displayWinner(winner);
 
-                } else {
-                    Button btn = (Button) event.getSource();
-                    String xOrO = player == 0 ? "X" : "O";
-                    btn.setText(xOrO);
-                    setPlayer();
+                    } else {
+                        Button btn = (Button) event.getSource();
+                        String xOrO = player == 0 ? "X" : "O";
+                        btn.setText(xOrO);
+                        setPlayer();
+                    }
+                } else if (game.getGameMode() == 1) {
+                    
                 }
             }
         } catch (Exception e)

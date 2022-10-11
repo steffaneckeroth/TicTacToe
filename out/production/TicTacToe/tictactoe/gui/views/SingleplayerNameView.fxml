@@ -18,6 +18,6 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btnSingleLetsPlay" layoutX="67.0" layoutY="210.0" mnemonicParsing="false" text="Lets play!" />
+      <Button fx:id="btnSingleLetsPlay" layoutX="67.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnHandleSingleplayer" text="Lets play!" />
    </children>
 </AnchorPane>

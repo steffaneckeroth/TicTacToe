@@ -19,7 +19,9 @@ public class SingleplayerNameController {
 
 
     @FXML
-    private void btnHandleSingleLetsPlay(ActionEvent actionEvent) throws IOException {
+    private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
+        IntroViewController.player1 = "   AI";
+        IntroViewController.player2 = SinglePlayerName.getText();
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/TicTacView.fxml"));
         Parent root = loader.load();

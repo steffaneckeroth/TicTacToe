@@ -45,12 +45,12 @@ public class GameBoard implements IGameModel
      * @return true if the move is accepted, otherwise false. If gameOver == true
      * this method will always return false.
      */
-    public boolean play(int col, int row)
+    public boolean player(int col, int row)
     {
-        System.out.println(gameMode);
-        if (board[col][row] == null){//checks if the spot is free
 
-            if (currentPlayer == 0){//checks if its it is x turn,
+        if (board[col][row] == null) {//checks if the spot is free
+
+            if (currentPlayer == 0) {//checks if its it is x turn,
                 currentPlayer = 1; //changes current player to o
                 board[col][row] = "x"; //saves x in the chosen spot
             } else if (currentPlayer == 1) {
@@ -59,10 +59,20 @@ public class GameBoard implements IGameModel
 
             }
             return true;
-        }
-        else {
+        } else {
             return false; //returns false if the spot is taken
         }
+    }
+
+    public int[] ai()
+    {
+        int[] field = new int[2];//saves return input
+
+        //field[0] = 1;
+
+
+        return field; //returns false if the spot is taken
+
     }
 
     public boolean isGameOver()

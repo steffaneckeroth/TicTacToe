@@ -31,7 +31,7 @@ public interface IGameModel
      * @return true if the move is accepted, otherwise false. If gameOver ==
      * true this method will always return false.
      */
-    public boolean play(int col, int row);
+    public boolean player(int col, int row);
 
     /**
      * Tells us if the game has ended either by draw or by meeting the winning
