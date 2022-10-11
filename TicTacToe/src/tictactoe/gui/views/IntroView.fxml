@@ -41,7 +41,7 @@
          </cursor></Button>
       <ImageView fx:id="imgIntroView" fitHeight="191.0" fitWidth="200.0" layoutX="201.0" layoutY="91.0">
          <image>
-            <Image url="@../../../../../../../../../../../../Billeder/TicTacIntroImage.png" />
+            <Image url="" />
          </image>
       </ImageView>
    </children>
