@@ -21,8 +21,6 @@ public interface IGameModel
 
     public int getGameMode();
 
-    public void setGameMode(int mode);
-
     /**
      * Attempts to let the current player play at the given coordinates. If the
      * attempt is succesfull the current player has ended his turn and it is the
