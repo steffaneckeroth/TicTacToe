@@ -21,7 +21,12 @@ public class IntroViewController {
     public static String player2 = "player2";
 
 
-    public void btnHandleScoreboard(ActionEvent actionEvent) {
+    public void btnHandleScoreboard(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/HighscoreView.fxml"));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -32,7 +37,7 @@ public class IntroViewController {
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
-         }
+    }
 
     @FXML
     private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
@@ -43,3 +48,4 @@ public class IntroViewController {
         stage.show();
     }
 }
+
