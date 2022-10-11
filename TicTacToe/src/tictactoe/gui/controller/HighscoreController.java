@@ -16,4 +16,5 @@ public class HighscoreController extends Application {
     }
     public void Retry(ActionEvent actionEvent) {
     }
+
 }
