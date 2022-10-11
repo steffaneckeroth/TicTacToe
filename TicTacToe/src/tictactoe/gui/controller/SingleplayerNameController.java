@@ -3,7 +3,7 @@ package tictactoe.gui.controller;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class TicTacToeSingleplayerNameController {
+public class SingleplayerNameController {
     public TextField SinglePlayerName;
-    public Button btnSinglePlayerSubmit;
+    public Button btnSingleLetsPlay;
 }

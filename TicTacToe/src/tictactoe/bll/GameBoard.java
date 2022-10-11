@@ -20,6 +20,12 @@ public class GameBoard implements IGameModel
     {
         return currentPlayer;
     }
+
+    public void setGameMode(int mode){
+        gameMode = mode;
+        System.out.println("Det virker");
+    }
+
     public int getGameMode(){ return gameMode;}
 
     /**
@@ -33,7 +39,7 @@ public class GameBoard implements IGameModel
      */
     public boolean play(int col, int row)
     {
-
+        System.out.println(gameMode);
         if (board[col][row] == null){//checks if the spot is free
 
             if (currentPlayer == 0){//checks if its it is x turn,
