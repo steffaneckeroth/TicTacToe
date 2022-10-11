@@ -83,7 +83,7 @@ public class TicTacViewController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        game = new GameBoard();
+        game = new GameBoard(IntroViewController.gameMode);
         setPlayer();
     }
 

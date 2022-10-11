@@ -8,6 +8,10 @@ package tictactoe.bll;
 //hey
 public class GameBoard implements IGameModel
 {
+
+    public GameBoard(int mode){
+    gameMode= mode;
+    }
     private int currentPlayer = 0;
     private int gameMode = 1;
     private String[][] board = new String[3][3];

@@ -16,12 +16,15 @@ public class IntroViewController {
     public Button btnMultiplayer;
     public Button btnScoreboard;
 
+    public static int gameMode;
+
 
     public void btnHandleScoreboard(ActionEvent actionEvent) {
     }
 
     @FXML
     private void btnHandleMultiplayer(ActionEvent actionEvent) throws IOException {
+        gameMode = 10;
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/MultiplayerNamesView.fxml"));
         Parent root = loader.load();
