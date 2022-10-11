@@ -12,6 +12,8 @@ public class HighScoreController extends Application {
 
     }
 
-    public void Hey(ActionEvent actionEvent) {
+    public void Menu(ActionEvent actionEvent) {
+    }
+    public void Retry(ActionEvent actionEvent) {
     }
 }

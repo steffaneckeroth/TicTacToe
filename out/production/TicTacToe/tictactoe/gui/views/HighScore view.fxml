@@ -7,11 +7,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.gui.controller.HighScoreController">
    <children>
       <ListView layoutX="84.0" layoutY="265.0" prefHeight="90.0" prefWidth="200.0" />
-      <Button layoutX="139.0" layoutY="394.0" mnemonicParsing="false" onAction="#Retry" prefHeight="26.0" prefWidth="90.0" text="Retry" />
+      <Button layoutX="139.0" layoutY="394.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Retry" />
       <ListView layoutX="84.0" layoutY="179.0" prefHeight="38.0" prefWidth="200.0" />
       <Label layoutX="165.0" layoutY="231.0" prefHeight="18.0" prefWidth="38.0" text="Top 5" />
-      <Button fx:id="MenuBtn" layoutX="139.0" layoutY="435.0" mnemonicParsing="false" onAction="#Menu" prefHeight="26.0" prefWidth="90.0" text="Menu" />
-      <Label layoutX="164.0" layoutY="144.0" text="Winner" textOverrun="CENTER_WORD_ELLIPSIS">
+      <Button fx:id="MenuBtn" layoutX="139.0" layoutY="435.0" mnemonicParsing="false" onAction="#Hey" prefHeight="26.0" prefWidth="90.0" text="Menu" />
+      <Label layoutX="164.0" layoutY="144.0" text="WInner" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Italic" size="16.0" />
          </font></Label>
