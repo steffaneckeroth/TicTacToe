@@ -9,11 +9,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
 
@@ -42,6 +46,7 @@ public class TicTacViewController implements Initializable
     private static final String TXT_PLAYER = "Player: ";
     private IGameModel game;
 
+    public static Stage stage = new Stage();
 
     @FXML
     private void handleButtonAction(ActionEvent event)
@@ -61,6 +66,15 @@ public class TicTacViewController implements Initializable
                         btn.setText(xOrO);
                         String winner = game.getWinner();
                         displayWinner(winner);
+                        Stage stage1 = (Stage) MultiplayerNamesController.stage;
+                        stage1.close();
+
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/HighscoreView.fxml"));
+                        Parent root = loader.load();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
 
                     } else {
                         Button btn = (Button) event.getSource();
@@ -68,6 +82,7 @@ public class TicTacViewController implements Initializable
                         btn.setText(xOrO);
                         setPlayer();
                     }
+                    //singleplayer
                 } else if (game.getGameMode() == 1) {
                     
                 }

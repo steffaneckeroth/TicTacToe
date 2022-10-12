@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import tictactoe.gui.TicTacToe;
 
 import java.io.IOException;
 
@@ -17,16 +18,22 @@ public class SingleplayerNameController {
     public Button btnSingleLetsPlay;
     public TextField SinglePlayerName;
 
+    public static Stage stage = new Stage();
+
 
     @FXML
-    private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
+    public void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
         IntroViewController.player1 = "   AI";
         IntroViewController.player2 = SinglePlayerName.getText();
-        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/TicTacView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
+
+        Stage stage1 = (Stage) IntroViewController.stage;
+        stage1.close();
+        Stage stage2 = (Stage) TicTacToe.st.getScene().getWindow();
+        stage2.close();
 
     }
 }

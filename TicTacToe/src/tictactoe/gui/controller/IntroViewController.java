@@ -20,6 +20,8 @@ public class IntroViewController {
     public static String player1 = "player1";
     public static String player2 = "player2";
 
+    public static Stage stage = new Stage();
+
 
     public void btnHandleScoreboard(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
@@ -32,16 +34,15 @@ public class IntroViewController {
     @FXML
     private void btnHandleMultiplayer(ActionEvent actionEvent) throws IOException {
         gameMode = 2;
-        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/MultiplayerNamesView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
+
     }
 
     @FXML
     private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/SingleplayerNameView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));

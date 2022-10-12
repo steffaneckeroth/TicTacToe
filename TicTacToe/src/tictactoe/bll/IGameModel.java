@@ -5,6 +5,8 @@
  */
 package tictactoe.bll;
 
+import java.io.IOException;
+
 /**
  *
  * @author Stegger
@@ -39,7 +41,7 @@ public interface IGameModel
      *
      * @return true if the game is over, else it will retun false.
      */
-    public boolean isGameOver();
+    public boolean isGameOver() throws IOException, IOException;
 
     /**
      * Gets the id of the winner, -1 if its a draw or if the game is still running.

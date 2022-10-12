@@ -5,6 +5,15 @@
  */
 package tictactoe.bll;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import tictactoe.gui.controller.MultiplayerNamesController;
+
+import java.io.IOException;
+import java.util.Objects;
+
 //hey
 public class GameBoard implements IGameModel
 {
@@ -75,9 +84,9 @@ public class GameBoard implements IGameModel
 
     }
 
-    public boolean isGameOver()
+    public boolean isGameOver() throws IOException
     {
-        if (getWinner() == player1 || getWinner() == player2){
+        if (Objects.equals(getWinner(), player1) || Objects.equals(getWinner(), player2)) {
             return true;
         }
 
@@ -149,8 +158,30 @@ public class GameBoard implements IGameModel
             return player2;
         }
     }
-    
 
+    private int[] bestMove(){
+        double bestScore = -Double.POSITIVE_INFINITY;
+        int[] move = new int[2];
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
+                if(board[row][col] == null){
+                    board[row][col] = "x";
+                    int score = minimax(board, 0, false);
+                    board[row][col] = null;
+                    if (score > bestScore) {
+                        bestScore = score;
+                        move[0] = row;
+                        move[1] = col;
+                    }
+                }
+            }
+        }
+        board[move[0]][move[1]] = "x";
+        return move;
+    }
 
+    public int minimax(String[][] board , int depth , boolean isMaximaxing ){
+        return 1;
+    }
 }
 

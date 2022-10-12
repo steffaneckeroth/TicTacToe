@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tictactoe.gui.controller.IntroViewController;
 
 /**
  *
@@ -17,24 +18,20 @@ import javafx.stage.Stage;
  */
 public class TicTacToe extends Application
 {
-    
+    public static Stage st = new Stage();
     @Override
     public void start(Stage stage) throws Exception
     {
      
         
         Parent root = FXMLLoader.load(getClass().getResource("views/IntroView.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
-        
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.setTitle("Tic Tac Toe");
-        stage.centerOnScreen();
-        
-        
-        stage.show();
+        st.setScene(scene);
+        st.setResizable(false);
+        st.setTitle("Tic Tac Toe");
+        st.centerOnScreen();
+        st.show();
     }
 
     /**

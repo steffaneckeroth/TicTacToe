@@ -28,13 +28,21 @@ public class HighscoreController extends Application {
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
+
+        Stage stage1 = (Stage) TicTacViewController.stage;
+        stage1.close();
     }
     public void Retry(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/MultiplayerNamesView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/TicTacView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
+
+        Stage stage1 = (Stage) TicTacViewController.stage;
+        stage1.close();
+
+
     }
 
 }
