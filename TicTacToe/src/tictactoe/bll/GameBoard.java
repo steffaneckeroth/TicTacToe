@@ -41,7 +41,7 @@ public class GameBoard implements IGameModel
     }
 
     public String showWinner(){
-        System.out.println(winner);x½
+        System.out.println(winner);
         return winner;
     }
 
