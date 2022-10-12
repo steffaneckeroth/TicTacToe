@@ -64,8 +64,6 @@ public class TicTacViewController implements Initializable
                         Button btn = (Button) event.getSource();
                         String xOrO = player == 0 ? "X" : "O";
                         btn.setText(xOrO);
-                        String winner = game.getWinner();
-                        displayWinner(winner);
                         Stage stage1 = (Stage) MultiplayerNamesController.stage;
                         stage1.close();
 

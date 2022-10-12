@@ -28,6 +28,8 @@ public class GameBoard implements IGameModel
     private int currentPlayer = 0;
     private int gameMode = 1;
     private String[][] board = new String[3][3];
+
+    private String winner;
     /**
      * Returns 0 for player 0, 1 for player 1.
      *
@@ -36,6 +38,11 @@ public class GameBoard implements IGameModel
     public int getNextPlayer()
     {
         return currentPlayer;
+    }
+
+    public String showWinner(){
+        System.out.println(winner);x½
+        return winner;
     }
 
     public void setGameMode(int mode){
@@ -111,8 +118,10 @@ public class GameBoard implements IGameModel
         for (int row = 0;  row < board.length; row++){
             String outcome = board[row][0] + board[row][1] + board[row][2];
             if (outcome.equals("xxx")){
+                winner = player1;
                 return player1;
             } else if (outcome.equals("ooo")) {
+                winner = player2;
                 return player2;
             }
         }
@@ -120,8 +129,10 @@ public class GameBoard implements IGameModel
         for (int col = 0; col < board.length; col++) {
             String outcome = board[0][col] + board[1][col] + board[2][col];
             if (outcome.equals("xxx")) {
+                winner = player1;
                 return player1;
             } else if (outcome.equals("ooo")) {
+                winner = player2;
                 return player2;
             }
         }
@@ -129,8 +140,10 @@ public class GameBoard implements IGameModel
         String cross1 = board[0][0] + board[1][1] + board[2][2];
         String cross2 = board[0][2] + board[1][1] + board[2][0];
         if (cross1.equals("xxx") || cross2.equals("xxx")){
+            winner = player1;
             return player1;
         } else if (cross1.equals("ooo") || cross2.equals("ooo")) {
+            winner = player2;
             return player2;
         }
 

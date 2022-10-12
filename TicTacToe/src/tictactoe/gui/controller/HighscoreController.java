@@ -6,7 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import tictactoe.bll.IGameModel;
 
 import java.io.IOException;
 
@@ -17,9 +21,15 @@ public class HighscoreController extends Application {
 
     public Button btnMultiplayer;
 
+    private IGameModel game;
+    public TextField winnerDisplay;
+
+
+
     @Override
     public void start(Stage primaryStage) {
-
+    }
+    public HighscoreController(){
     }
 
     public void Menu(ActionEvent actionEvent)throws IOException {
