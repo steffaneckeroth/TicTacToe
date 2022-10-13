@@ -19,14 +19,12 @@ public class GameBoard implements IGameModel
 {
 
     public GameBoard(int mode, String player1, String player2){
-    gameMode= mode;
     this.player1 = player1;
     this.player2 = player2;
     }
     private String player1;
     private String player2;
     private int currentPlayer = 0;
-    private int gameMode = 1;
     private String[][] board = new String[3][3];
 
     private String winner;
@@ -41,16 +39,9 @@ public class GameBoard implements IGameModel
     }
 
     public String showWinner(){
-        System.out.println(winner);
         return winner;
     }
 
-    public void setGameMode(int mode){
-        gameMode = mode;
-        System.out.println("Det virker");
-    }
-
-    public int getGameMode(){ return gameMode;}
 
     /**
      * Attempts to let the current player play at the given coordinates. It the
@@ -84,9 +75,6 @@ public class GameBoard implements IGameModel
     {
         int[] field = new int[2];//saves return input
 
-        //field[0] = 1;
-
-
         return field; //returns false if the spot is taken
 
     }
@@ -97,6 +85,7 @@ public class GameBoard implements IGameModel
             return true;
         }
 
+        //checks if there is anymore moves possible
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
                 if(board[row][col] == null){
@@ -171,6 +160,13 @@ public class GameBoard implements IGameModel
             return player2;
         }
     }
+
+    public int randommove(){
+        currentPlayer = 1;
+        return 8;
+
+    }
+
 
     private int[] bestMove(){
         double bestScore = -Double.POSITIVE_INFINITY;

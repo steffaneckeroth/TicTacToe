@@ -48,6 +48,8 @@ public class TicTacViewController implements Initializable
 
     public static Stage stage = new Stage();
 
+    public static String winner;
+
     @FXML
     private void handleButtonAction(ActionEvent event)
     {
@@ -58,32 +60,27 @@ public class TicTacViewController implements Initializable
             int r = (row == null) ? 0 : row;
             int c = (col == null) ? 0 : col;
             int player = game.getNextPlayer();
-            if (game.getGameMode() == 2) {
+
+            if (IntroViewController.gameMode == 2) {
                 if (game.player(c, r)) {
-                    if (game.isGameOver()) {
-                        Button btn = (Button) event.getSource();
-                        String xOrO = player == 0 ? "X" : "O";
-                        btn.setText(xOrO);
-                        Stage stage1 = (Stage) MultiplayerNamesController.stage;
-                        stage1.close();
-
-
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/HighscoreView.fxml"));
-                        Parent root = loader.load();
-                        stage.setScene(new Scene(root));
-                        stage.show();
-
-
-                    } else {
+                    if (!game.isGameOver()) {
                         Button btn = (Button) event.getSource();
                         String xOrO = player == 0 ? "X" : "O";
                         btn.setText(xOrO);
                         setPlayer();
+                    } else {
+                        winner = game.getWinner();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/HighscoreView.fxml"));
+                        Parent root = loader.load();
+                        stage.setScene(new Scene(root));
+                        stage.show();
                     }
+
                     //singleplayer
-                } else if (game.getGameMode() == 1) {
-                    
                 }
+            }
+            else if (IntroViewController.gameMode == 1) {
+
             }
         } catch (Exception e)
         {
@@ -111,11 +108,9 @@ public class TicTacViewController implements Initializable
         lblPlayer.setText(TXT_PLAYER + game.getNextPlayerName());
     }
 
-    private void displayWinner(String winner)
+    private void displayWinner()
     {
-        String message = "";
-        message = winner + ":  wins";
-        lblPlayer.setText(message);
+
     }
 
     private void clearBoard()

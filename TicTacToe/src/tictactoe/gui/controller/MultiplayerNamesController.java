@@ -28,14 +28,14 @@ public class MultiplayerNamesController {
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
-
-        Stage stage1 = (Stage) IntroViewController.stage;
-        stage1.close();
-        Stage stage2 = (Stage) TicTacToe.st.getScene().getWindow();
-        stage2.close();
+        closeView();
     }
-    public  void closeView(){
-        Stage stage1 = (Stage) btnMultiLetsPlay.getScene().getWindow();
-        stage1.close();
+
+    //closes namePopUp ann introview.
+    private void closeView(){
+        Stage namePopUp = (Stage) IntroViewController.stage;
+        namePopUp.close();
+        Stage introView = (Stage) TicTacToe.st.getScene().getWindow();
+        introView.close();
     }
 }

@@ -21,7 +21,6 @@ public interface IGameModel
      */
     public int getNextPlayer();
 
-    public int getGameMode();
 
     /**
      * Attempts to let the current player play at the given coordinates. If the
@@ -45,6 +44,8 @@ public interface IGameModel
      */
     public boolean isGameOver() throws IOException, IOException;
 
+
+    public int randommove();
     /**
      * Gets the id of the winner, -1 if its a draw or if the game is still running.
      *
