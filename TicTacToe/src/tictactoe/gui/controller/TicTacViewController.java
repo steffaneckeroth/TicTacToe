@@ -27,7 +27,6 @@ import tictactoe.bll.IGameModel;
  */
 public class TicTacViewController implements Initializable
 {
-
     public Button btn1;
     public Button btn2;
     public Button btn3;
@@ -39,17 +38,19 @@ public class TicTacViewController implements Initializable
     public Button btn9;
     @FXML
     private Label lblPlayer;
-
     @FXML
     private GridPane gridPane;
-    
     private static final String TXT_PLAYER = "Player: ";
     private IGameModel game;
-
     public static Stage stage = new Stage();
-
     public static String winner;
 
+    /**
+     * here most of the game runs
+     * first it checks for what gamemode you are playing, after that it checks if the move is possible.
+     * if it is the move will be shown on the button and it is the next players turn
+     * @param event
+     */
     @FXML
     private void handleButtonAction(ActionEvent event)
     {
@@ -60,7 +61,7 @@ public class TicTacViewController implements Initializable
             int r = (row == null) ? 0 : row;
             int c = (col == null) ? 0 : col;
             int player = game.getNextPlayer();
-
+            //multiplayer
             if (IntroViewController.gameMode == 2) {
                 if (game.player(c, r)) {
                     if (!game.isGameOver()) {
@@ -74,11 +75,11 @@ public class TicTacViewController implements Initializable
                         Parent root = loader.load();
                         stage.setScene(new Scene(root));
                         stage.show();
+                        MultiplayerNamesController.stage.close();
                     }
-
-
                 }
             }
+            //singleplayer
             else if (IntroViewController.gameMode == 1) {
                 if (game.player(c, r)){
                     Button btn = (Button) event.getSource();
@@ -94,9 +95,7 @@ public class TicTacViewController implements Initializable
                         Parent root = loader.load();
                         stage.setScene(new Scene(root));
                         stage.show();
-
-
-
+                        SingleplayerNameController.stage.close();
                 }
             }
         } catch (Exception e)
@@ -105,6 +104,10 @@ public class TicTacViewController implements Initializable
         }
     }
 
+    /**
+     * starts a new game
+     * @param event
+     */
     @FXML
     private void handleNewGame(ActionEvent event)
     {
@@ -113,6 +116,18 @@ public class TicTacViewController implements Initializable
         clearBoard();
     }
 
+    /**
+     * creates a instance of the gameBoard class
+     * makes the Ai first move if it is singleplayer
+     *
+     * @param url
+     * The location used to resolve relative paths for the root object, or
+     * {@code null} if the location is not known.
+     *
+     * @param rb
+     * The resources used to localize the root object, or {@code null} if
+     * the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -125,12 +140,17 @@ public class TicTacViewController implements Initializable
         }
     }
 
+    /**
+     * sets name of the player int the top of screen
+     */
     private void setPlayer()
     {
         lblPlayer.setText(TXT_PLAYER + game.getNextPlayerName());
     }
 
-
+    /**
+     * clear the board ind view.
+     */
     private void clearBoard()
     {
         for(Node n : gridPane.getChildren())
@@ -140,8 +160,11 @@ public class TicTacViewController implements Initializable
         }
     }
 
+    /**
+     * sets text for the AI move
+     * @param move
+     */
     private void setAiText(int move){
-
         switch (move){
             case 1:
                 btn1.setText("x");

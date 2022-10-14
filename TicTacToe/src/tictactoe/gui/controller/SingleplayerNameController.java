@@ -17,19 +17,21 @@ public class SingleplayerNameController {
     public TextField Player1;
     public Button btnSingleLetsPlay;
     public TextField SinglePlayerName;
-
     public static Stage stage = new Stage();
 
-
+    /**
+     * saves name of player and launches gameboard
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
-    public void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
+    private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
         IntroViewController.player1 = "   AI";
         IntroViewController.player2 = SinglePlayerName.getText();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/TicTacView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
-
         Stage stage1 = (Stage) IntroViewController.stage;
         stage1.close();
         Stage stage2 = (Stage) TicTacToe.st.getScene().getWindow();

@@ -16,9 +16,11 @@ public class MultiplayerNamesController {
     public TextField Player1;
     public TextField Player2;
     public Button btnMultiLetsPlay;
-
     public static Stage stage = new Stage();
 
+    /**
+     * saves the player names and launches the gameboard
+     */
     @FXML
     private void btnHandleMultiLetsPlay(ActionEvent actionEvent) throws IOException {
         IntroViewController.player1 = Player1.getText();
@@ -31,7 +33,10 @@ public class MultiplayerNamesController {
         closeView();
     }
 
-    //closes namePopUp ann introview.
+    /**
+     * closes window
+     */
+    @FXML
     private void closeView(){
         Stage namePopUp = (Stage) IntroViewController.stage;
         namePopUp.close();

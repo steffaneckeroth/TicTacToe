@@ -5,7 +5,6 @@
  */
 package tictactoe.bll;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class GameBoard implements IGameModel {
@@ -56,7 +55,12 @@ public class GameBoard implements IGameModel {
         }
     }
 
-    public boolean isGameOver() throws IOException {
+    /**
+     *checks if the game is over and returns a boolean, if the game is over
+     *
+     * @return
+     */
+    public boolean isGameOver(){
         if (Objects.equals(getWinner(), player1) || Objects.equals(getWinner(), player2)) {
             return true;
         }
@@ -125,6 +129,11 @@ public class GameBoard implements IGameModel {
         }
     }
 
+    /**
+     * returns the name of the current player as a string
+     * @return
+     */
+
     public String getNextPlayerName() {
 
         if (currentPlayer == 0) {
@@ -134,6 +143,10 @@ public class GameBoard implements IGameModel {
         }
     }
 
+    /**
+     * gets the first possiblemove and return an int, for the button that needs to be set in TicTacViewController
+     * @return
+     */
     public int randomMove() {
         for (int col = 0; col < board.length; col++) {
             for (int row = 0; row < board.length; row++) {

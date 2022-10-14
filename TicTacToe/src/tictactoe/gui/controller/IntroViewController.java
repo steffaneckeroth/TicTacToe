@@ -23,7 +23,14 @@ public class IntroViewController {
     public static Stage stage = new Stage();
 
 
-    public void btnHandleScoreboard(ActionEvent actionEvent) throws IOException {
+    /**
+     * Shows the scoreboard
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
+    @FXML
+    private void btnHandleScoreboard(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/HighscoreView.fxml"));
         Parent root = loader.load();
@@ -31,6 +38,11 @@ public class IntroViewController {
         stage.show();
     }
 
+    /**
+     * when the multiplayer buttom is pressed the name popup will start.
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void btnHandleMultiplayer(ActionEvent actionEvent) throws IOException {
         gameMode = 2;
@@ -40,7 +52,12 @@ public class IntroViewController {
         stage.show();
 
     }
-
+    /**
+    * when the singleplayer buttom is pressed the name popup will start.
+     *
+    * @param actionEvent
+    * @throws I
+    */
     @FXML
     private void btnHandleSingleplayer(ActionEvent actionEvent) throws IOException {
         gameMode = 1;
