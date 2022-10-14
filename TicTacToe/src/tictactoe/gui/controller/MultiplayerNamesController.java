@@ -42,5 +42,7 @@ public class MultiplayerNamesController {
         namePopUp.close();
         Stage introView = (Stage) TicTacToe.st.getScene().getWindow();
         introView.close();
+        HighscoreController.stage.close();
+
     }
 }

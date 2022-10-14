@@ -27,7 +27,6 @@ public class HighscoreController implements Initializable {
      */
     @FXML
     private void Menu(ActionEvent actionEvent)throws IOException {
-        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/IntroView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
