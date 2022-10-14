@@ -161,10 +161,42 @@ public class GameBoard implements IGameModel
         }
     }
 
-    public int randommove(){
-        currentPlayer = 1;
-        return 8;
-
+    public int randomMove() {
+        for (int col = 0; col < board.length ; col++) {
+            for (int row = 0; row < board.length ; row++) {
+                if (player(col, row)) {
+                    if (row == 0 && col == 0){
+                        board[col][row] = "x";
+                        return 1;
+                    } else if (col == 1 && row == 0) {
+                        board[col][row] = "x";
+                        return 2;
+                    }else if (col == 2 && row == 0) {
+                        board[col][row] = "x";
+                        return 3;
+                    }else if (col == 0 && row == 1) {
+                        board[col][row] = "x";
+                        return 4;
+                    }else if (col == 1 && row == 1) {
+                        board[col][row] = "x";
+                        return 5;
+                    }else if (col == 2 && row == 1) {
+                        board[col][row] = "x";
+                        return 6;
+                    }else if (col == 0 && row == 2) {
+                        board[col][row] = "x";
+                        return 7;
+                    }else if (col == 1 && row == 2) {
+                        board[col][row] = "x";
+                        return 8;
+                    }else if (col == 2 && row == 2) {
+                        board[col][row] = "x";
+                        return 9;
+                    }
+                }
+            }
+        }
+        return 0;
     }
 
 

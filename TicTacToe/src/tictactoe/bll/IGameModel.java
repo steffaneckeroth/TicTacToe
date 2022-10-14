@@ -45,7 +45,7 @@ public interface IGameModel
     public boolean isGameOver() throws IOException, IOException;
 
 
-    public int randommove();
+    public int randomMove();
     /**
      * Gets the id of the winner, -1 if its a draw or if the game is still running.
      *

@@ -76,11 +76,28 @@ public class TicTacViewController implements Initializable
                         stage.show();
                     }
 
-                    //singleplayer
+
                 }
             }
             else if (IntroViewController.gameMode == 1) {
+                if (game.player(c, r)){
+                    Button btn = (Button) event.getSource();
+                    String xOrO = player == 0 ? "X" : "O";
+                    btn.setText(xOrO);
+                    setPlayer();
+                }
+                setAiText(game.randomMove());
 
+                if (game.isGameOver()){
+                        winner = game.getWinner();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/HighscoreView.fxml"));
+                        Parent root = loader.load();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
+
+
+                }
             }
         } catch (Exception e)
         {
@@ -101,6 +118,11 @@ public class TicTacViewController implements Initializable
     {
         game = new GameBoard(IntroViewController.gameMode, IntroViewController.player1, IntroViewController.player2);
         setPlayer();
+
+        //sets the first x if it is singleplayer
+        if (IntroViewController.gameMode ==1){
+            setAiText(game.randomMove());
+        }
     }
 
     private void setPlayer()
@@ -108,10 +130,6 @@ public class TicTacViewController implements Initializable
         lblPlayer.setText(TXT_PLAYER + game.getNextPlayerName());
     }
 
-    private void displayWinner()
-    {
-
-    }
 
     private void clearBoard()
     {
@@ -119,6 +137,40 @@ public class TicTacViewController implements Initializable
         {
             Button btn = (Button) n;
             btn.setText("");
+        }
+    }
+
+    private void setAiText(int move){
+
+        switch (move){
+            case 1:
+                btn1.setText("x");
+                break;
+            case 2:
+                btn2.setText("x");
+                break;
+            case 3:
+                btn3.setText("x");
+                break;
+            case 4:
+                btn4.setText("x");
+                break;
+            case 5:
+                btn5.setText("x");
+                break;
+            case 6:
+                btn6.setText("x");
+                break;
+            case 7:
+                btn7.setText("x");
+                break;
+            case 8:
+                btn8.setText("x");
+                break;
+            case 9:
+                btn9.setText("x");
+                break;
+
         }
     }
 
