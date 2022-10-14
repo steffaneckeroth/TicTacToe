@@ -22,7 +22,6 @@ import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
 
 /**
- *
  * @author Stegger
  */
 public class TicTacViewController implements Initializable
