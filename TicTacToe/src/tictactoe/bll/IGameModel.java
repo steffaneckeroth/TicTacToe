@@ -34,7 +34,6 @@ public interface IGameModel
      */
     public boolean player(int col, int row);
 
-    public String showWinner();
 
     /**
      * Tells us if the game has ended either by draw or by meeting the winning

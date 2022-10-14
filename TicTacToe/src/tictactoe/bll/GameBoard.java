@@ -5,65 +5,50 @@
  */
 package tictactoe.bll;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import tictactoe.gui.controller.MultiplayerNamesController;
-
 import java.io.IOException;
 import java.util.Objects;
 
-//hey
-public class GameBoard implements IGameModel
-{
+public class GameBoard implements IGameModel {
 
-    public GameBoard(int mode, String player1, String player2){
-    this.player1 = player1;
-    this.player2 = player2;
+    public GameBoard(int mode, String player1, String player2) {
+        this.player1 = player1;
+        this.player2 = player2;
     }
+
     private String player1;
     private String player2;
     private int currentPlayer = 0;
     private String[][] board = new String[3][3];
-
     private String winner;
+
     /**
      * Returns 0 for player 0, 1 for player 1.
      *
      * @return int Id of the next player.
      */
-    public int getNextPlayer()
-    {
+    public int getNextPlayer() {
         return currentPlayer;
     }
-
-    public String showWinner(){
-        return winner;
-    }
-
 
     /**
      * Attempts to let the current player play at the given coordinates. It the
      * attempt is succesfull the current player has ended his turn and it is the
      * next players turn.
+     *
      * @param col column to place a marker in.
      * @param row row to place a marker in.
      * @return true if the move is accepted, otherwise false. If gameOver == true
      * this method will always return false.
      */
-    public boolean player(int col, int row)
-    {
+    public boolean player(int col, int row) {
 
         if (board[col][row] == null) {//checks if the spot is free
-
             if (currentPlayer == 0) {//checks if its it is x turn,
                 currentPlayer = 1; //changes current player to o
                 board[col][row] = "x"; //saves x in the chosen spot
             } else if (currentPlayer == 1) {
                 currentPlayer = 0;
                 board[col][row] = "o";
-
             }
             return true;
         } else {
@@ -71,24 +56,14 @@ public class GameBoard implements IGameModel
         }
     }
 
-    public int[] ai()
-    {
-        int[] field = new int[2];//saves return input
-
-        return field; //returns false if the spot is taken
-
-    }
-
-    public boolean isGameOver() throws IOException
-    {
+    public boolean isGameOver() throws IOException {
         if (Objects.equals(getWinner(), player1) || Objects.equals(getWinner(), player2)) {
             return true;
         }
-
         //checks if there is anymore moves possible
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
-                if(board[row][col] == null){
+                if (board[row][col] == null) {
                     return false;
                 }
             }
@@ -101,12 +76,11 @@ public class GameBoard implements IGameModel
      *
      * @return int id of winner, or -1 if draw.
      */
-    public String getWinner()
-    {
+    public String getWinner() {
         //checks for vertical win
-        for (int row = 0;  row < board.length; row++){
+        for (int row = 0; row < board.length; row++) {
             String outcome = board[row][0] + board[row][1] + board[row][2];
-            if (outcome.equals("xxx")){
+            if (outcome.equals("xxx")) {
                 winner = player1;
                 return player1;
             } else if (outcome.equals("ooo")) {
@@ -128,7 +102,7 @@ public class GameBoard implements IGameModel
 
         String cross1 = board[0][0] + board[1][1] + board[2][2];
         String cross2 = board[0][2] + board[1][1] + board[2][0];
-        if (cross1.equals("xxx") || cross2.equals("xxx")){
+        if (cross1.equals("xxx") || cross2.equals("xxx")) {
             winner = player1;
             return player1;
         } else if (cross1.equals("ooo") || cross2.equals("ooo")) {
@@ -142,8 +116,7 @@ public class GameBoard implements IGameModel
     /**
      * Resets the game to a new game state.
      */
-    public void newGame()
-    {
+    public void newGame() {
         //clears the board
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
@@ -151,45 +124,45 @@ public class GameBoard implements IGameModel
             }
         }
     }
+
     public String getNextPlayerName() {
 
         if (currentPlayer == 0) {
             return player1;
-        }
-        else {
+        } else {
             return player2;
         }
     }
 
     public int randomMove() {
-        for (int col = 0; col < board.length ; col++) {
-            for (int row = 0; row < board.length ; row++) {
+        for (int col = 0; col < board.length; col++) {
+            for (int row = 0; row < board.length; row++) {
                 if (player(col, row)) {
-                    if (row == 0 && col == 0){
+                    if (row == 0 && col == 0) {
                         board[col][row] = "x";
                         return 1;
                     } else if (col == 1 && row == 0) {
                         board[col][row] = "x";
                         return 2;
-                    }else if (col == 2 && row == 0) {
+                    } else if (col == 2 && row == 0) {
                         board[col][row] = "x";
                         return 3;
-                    }else if (col == 0 && row == 1) {
+                    } else if (col == 0 && row == 1) {
                         board[col][row] = "x";
                         return 4;
-                    }else if (col == 1 && row == 1) {
+                    } else if (col == 1 && row == 1) {
                         board[col][row] = "x";
                         return 5;
-                    }else if (col == 2 && row == 1) {
+                    } else if (col == 2 && row == 1) {
                         board[col][row] = "x";
                         return 6;
-                    }else if (col == 0 && row == 2) {
+                    } else if (col == 0 && row == 2) {
                         board[col][row] = "x";
                         return 7;
-                    }else if (col == 1 && row == 2) {
+                    } else if (col == 1 && row == 2) {
                         board[col][row] = "x";
                         return 8;
-                    }else if (col == 2 && row == 2) {
+                    } else if (col == 2 && row == 2) {
                         board[col][row] = "x";
                         return 9;
                     }
@@ -198,31 +171,6 @@ public class GameBoard implements IGameModel
         }
         return 0;
     }
-
-
-    private int[] bestMove(){
-        double bestScore = -Double.POSITIVE_INFINITY;
-        int[] move = new int[2];
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[row].length; col++) {
-                if(board[row][col] == null){
-                    board[row][col] = "x";
-                    int score = minimax(board, 0, false);
-                    board[row][col] = null;
-                    if (score > bestScore) {
-                        bestScore = score;
-                        move[0] = row;
-                        move[1] = col;
-                    }
-                }
-            }
-        }
-        board[move[0]][move[1]] = "x";
-        return move;
-    }
-
-    public int minimax(String[][] board , int depth , boolean isMaximaxing ){
-        return 1;
-    }
 }
+
 
