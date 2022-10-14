@@ -17,7 +17,7 @@ public class HighscoreController implements Initializable {
 
     @FXML
     private TextArea winnerDisplay;
-
+    public static  Stage stage = new Stage();
 
     /**
      * if the menu buttom is pressed, the introview scene is launched and HighscoreController is closed after.
@@ -45,7 +45,6 @@ public class HighscoreController implements Initializable {
      */
     @FXML
     private void Retry(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tictactoe/gui/views/TicTacView.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));

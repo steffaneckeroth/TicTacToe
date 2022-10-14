@@ -12,10 +12,7 @@
       <Button alignment="CENTER" blendMode="GREEN" layoutX="139.0" layoutY="394.0" mnemonicParsing="false" onAction="#Retry" prefHeight="26.0" prefWidth="90.0" text="Retry">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Berlin Sans FB" size="12.0" />
-         </font></Button>
+         </cursor></Button>
       <TextArea fx:id="winnerDisplay" layoutX="84.0" layoutY="105.0" prefHeight="38.0" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="TEXT" />

@@ -95,6 +95,7 @@ public class TicTacViewController implements Initializable
                         stage.setScene(new Scene(root));
                         stage.show();
                         SingleplayerNameController.stage.close();
+                        HighscoreController.stage.close();
                 }
             }
         } catch (Exception e)
